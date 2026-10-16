@@ -1,0 +1,22 @@
+package ma.enset.security.tp_jwt.controller;
+
+import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/api")
+public class UserController {
+
+    @GetMapping("/hello")
+    public String hello() {
+        return "Bienvenue à l'API securisée";
+    }
+
+    @GetMapping("/profile")
+    public String profile(Authentication authentication) {
+        return "user connecté : " + authentication.getName();
+    }
+}
+
